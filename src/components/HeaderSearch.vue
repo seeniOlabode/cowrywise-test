@@ -6,9 +6,9 @@
         <span>Go back</span>
       </router-link>
 
-      <h1 v-show="!loading" key="!loading">Search Results for <span class="search-string">"{{ searchString }}"</span>
+      <h1 v-show="!loading">Search Results for <span class="search-string">"{{ searchString }}"</span>
       </h1>
-      <h1 v-show="loading" key="loading">Searching for <span class="search-string">"{{ searchString }}"</span></h1>
+      <h1 v-show="loading">Searching for <span class="search-string">"{{ searchString }}"</span></h1>
     </div>
 
     <div class="search-container" v-else>
@@ -32,13 +32,12 @@
 <script setup>
 import useScrollTop from '@/composables/useScrollTop'
 
-const props = defineProps(['modelValue', 'isSearchPage', 'searchString', 'loading'])
+const props = defineProps(['modelValue', 'isSearchPage', 'searchString', 'loading']);
 const emit = defineEmits(['update:modelValue', 'start-search'])
 
 function handleSearchInput(e) {
   emit('update:modelValue', e.target.value)
 }
-
 function search() {
   emit('start-search')
 }
@@ -63,7 +62,6 @@ const scrollTop = useScrollTop()
   right: 0;
   z-index: 30;
   transform: translateY(10px);
-  // transition: transform var(--speed-1) ease-out;
   cursor: text;
 }
 
@@ -78,7 +76,6 @@ const scrollTop = useScrollTop()
   right: 0;
   top: 0;
   background-color: var(--app-grey);
-  // transition: transform var(--speed-3) ease-out;
 }
 
 .search-container-background.collapsed {

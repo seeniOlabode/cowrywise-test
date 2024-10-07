@@ -1,6 +1,6 @@
 <template>
-    <li class="photo-card" :class="{open: viewingPhoto}" :style="{'--card-animation-delay': `${index * 0.08}s` }" @click="toggleViewing" role="button">
-        <img class="photo-image" :src="photo?.urls?.small" />
+    <li class="photo-card" :class="{ open: viewingPhoto }" :style="computedStyle" @click="toggleViewing" role="button">
+        <img class="photo-image" :src="photo?.urls?.small" :alt="photo.alt_description" />
 
         <div class="photo-details">
             <span class="photographer heading">{{ creatorName }}</span>
@@ -28,12 +28,26 @@ const viewingPhoto = ref(false);
 function toggleViewing() {
     viewingPhoto.value = !viewingPhoto.value;
 }
+
+const computedStyle = computed(() => {
+    return {
+        '--card-animation-delay': `${index * 0.08}s`,
+        '--photo-width': photo.width,
+        '--photo-height': photo.height,
+        '--photo-color': photo.color
+    }
+}) 
 </script>
 
 <style lang="scss" scoped>
 @import "./PhotoCard.scss";
 
+.photo-card {
+    aspect-ratio: var(--photo-width) / var(--photo-height);
+    background-color: var(--photo-color);
+}
+
 .photo-card.open {
-    filter: blur(5px)
+    filter: blur(5px);
 }
 </style>

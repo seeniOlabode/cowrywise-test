@@ -2,12 +2,12 @@
     <Teleport to="#modals">
         <div class="modal modal-wrapper" @keydown.esc="handleEscape">
             <Transition name="modal">
-                <div v-if="open" class="modal-content" @click="zoomed = true">
+                <div v-if="open" class="modal-content" @click="zoomed = true" :style="{'--photo-width': photo.width + 'px', '--photo-height': photo.height + 'px', '--aspect': `${photo.width}/${photo.height}`}">
                     <!-- will be placed at a higher index than the small photo -->
-                    <img class="image" :src="photo?.urls?.regular" />
+                    <img class="image" :src="photo?.urls?.regular" :alt="photo.alt_description" />
 
                     <!-- already loaded for homepage, allows us to see dimensions, to prevent Content Layout Shift -->
-                    <img class="image small-photo" :src="photo?.urls?.small" />
+                    <img class="image small-photo" :src="photo?.urls?.small" :alt="photo.alt_description" />
 
                     <div class="text-content">
                         <span class="photographer">{{ creatorName }}</span>
@@ -89,18 +89,17 @@ const zoomed = ref(true);
 }
 
 .image {
-    // prioritize full photo preview, without cropping
     width: 100%;
     object-fit: cover;
     object-position: 50% 50%;
     grid-area: image;
+    aspect-ratio: var(--aspect);
 
     // defense for very long photos
     max-height: calc(var(--vh, 1vh) * 80); // => 80vh
 
     &.small-photo {
         z-index: 10;
-        @include pulseAnimation(0.7);
     }
 
     &:not(.small-photo) {
@@ -145,9 +144,12 @@ const zoomed = ref(true);
     }
 }
 
-.modal-leave-active,
 .modal-enter-active {
     transition: all var(--speed-2) var(--ease-out-quad);
+}
+
+.modal-leave-active {
+    transition: all var(--speed-1) var(--ease-out-quad);
 }
 
 .modal-enter-from,
