@@ -16,15 +16,13 @@ const errorMessages = {
   defaultPhotos: 'Error fetching default photos'
 }
 
-const DEFAULT_PHOTOS_COUNT = 8
-
 export default class PhotoService {
-  static async pullDefaultPhotos(query = '') {
+  static async pullDefaultPhotos(query = '', count = 8) {
     try {
       const response = await unsplash.get('/search/photos', {
         params: {
           query,
-          per_page: DEFAULT_PHOTOS_COUNT
+          per_page: count
         }
       })
       return response.data

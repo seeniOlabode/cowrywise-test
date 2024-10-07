@@ -22,7 +22,7 @@ const searchString = computed(() => route.query.search)
 const { photos, getPhotos, photosLoading } = usePhotosStore(route.query.search);
 
 watch(searchString, (value) => {
-    getPhotos(value || 'Africa');
+    getPhotos(value || 'Africa', 10);
 }, {immediate: true})
 
 const scrollTop = useScrollTop();

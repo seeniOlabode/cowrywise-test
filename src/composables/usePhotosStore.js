@@ -6,7 +6,7 @@ const photos = ref([])
 const photosLoading = ref(false)
 let photosLoadingTimeout
 
-async function getPhotos(query = 'African') {
+async function getPhotos(query = 'African', count = 8) {
   // reset photos
   photos.value = []
 
@@ -17,7 +17,7 @@ async function getPhotos(query = 'African') {
     photosLoading.value = true
   }, 200)
 
-  const response = await PhotoService.pullDefaultPhotos(query)
+  const response = await PhotoService.pullDefaultPhotos(query, count)
 
   photos.value = response.results
 
