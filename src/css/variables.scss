@@ -1,0 +1,28 @@
+:root {
+  // bases
+  --grey-base: 215, 22%, 89%;
+  --blue-base: 217, 40%, 22%;
+
+  --app-grey: hsla(var(--grey-base), 1);
+  --app-grey-foreground: hsla(var(--blue-base));
+  --app-grey-muted: rgb(109, 120, 142);
+
+  --app-skeleton-body: rgb(246, 246, 246);
+  --app-skeleton-foreground: rgb(231, 231, 231);
+
+  // custom easings
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+  // animation durations
+  --speed-1: 150ms;
+  --speed-2: 200ms;
+  --speed-3: 300ms;
+  --speed-5: 500ms;
+
+  --100vh: calc(var(--vh, 1vh) * 100);
+}
+
+$layout-breakpoint-tablet: 600px;
+$layout-breakpoint-desktop: 800px;

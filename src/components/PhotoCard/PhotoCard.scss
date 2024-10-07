@@ -1,0 +1,124 @@
+@import '@/css/mixins.scss';
+
+.photo-card {
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+  user-select: none;
+  min-height: 100px;
+
+  &:not(.loading) {
+    animation: fade-in 0.25s forwards ease-out;
+    animation-delay: var(--card-animation-delay, 0s);
+    opacity: 0;
+    cursor: pointer;
+    transition: transform 0.5s ease-out;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0.2;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
+
+.photo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-details {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  color: white;
+  z-index: 10;
+}
+
+.photo-details::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  backdrop-filter: brightness(0.2);
+  mask-image: linear-gradient(to bottom, transparent 0%, transparent 60%, black 100%);
+  z-index: -1;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.photo-card:hover .photo-details::before {
+  opacity: 0;
+}
+
+// typography
+.heading {
+  font-size: 1.2rem;
+  @include long-content;
+  text-transform: capitalize;
+}
+
+.body {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  @include long-content;
+}
+
+@media screen and (min-width: 500px) {
+  .body {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+}
+
+// loading
+
+.photo-card.loading {
+  background-color: var(--app-skeleton-body);
+
+  .photo-details::before {
+    content: none;
+  }
+
+  &:nth-child(3n + 1) {
+    aspect-ratio: 345/250;
+  }
+
+  &:nth-child(3n + 2) {
+    aspect-ratio: 345/400;
+  }
+
+  &:nth-child(3n + 3) {
+    aspect-ratio: 345/345;
+  }
+
+  .photo-details {
+    gap: 5px;
+    .photographer,
+    .country {
+      background-color: var(--app-skeleton-foreground);
+      color: var(--app-skeleton-foreground);
+      border-radius: 3px;
+      opacity: 1;
+      width: fit-content;
+      animation: var(--pulse-animation);
+    }
+
+    .country {
+      animation-delay: 0.1s;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+// reset
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: white;
+  height: var(--100vh);
+  overflow: scroll;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+// // animations
+
+:root {
+  --pulse-animation: pulse 1s infinite alternate-reverse;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
