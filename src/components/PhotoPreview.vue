@@ -100,6 +100,7 @@ const zoomed = ref(true);
 
     &.small-photo {
         z-index: 10;
+        @include pulseAnimation(0.7);
     }
 
     &:not(.small-photo) {

@@ -3,3 +3,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+@mixin pulseAnimation($opacity-value) {
+  @keyframes pulse {
+    from {
+      opacity: $opacity-value;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  animation: pulse 0.8s ease-in-out infinite alternate-reverse;
+}
