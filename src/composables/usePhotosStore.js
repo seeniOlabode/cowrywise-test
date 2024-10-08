@@ -1,3 +1,5 @@
+// module considered too small to spin up a Pinia Instance;
+
 import { ref } from 'vue'
 import PhotoService from '@/api/photos-service'
 
@@ -12,12 +14,12 @@ async function getPhotos(query = 'African', count = 8) {
 
   clearTimeout(photosLoadingTimeout)
 
-  // Delay showing the loading state, avoid glitching
+  // Delay showing the loading state, avoid glitching if it loads too fast
   photosLoadingTimeout = setTimeout(() => {
     photosLoading.value = true
   }, 200)
 
-  const response = await PhotoService.pullDefaultPhotos(query, count)
+  const response = await PhotoService.pullPhotos(query, count)
 
   photos.value = response.results
 

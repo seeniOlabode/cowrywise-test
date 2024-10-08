@@ -70,6 +70,7 @@ const zoomed = ref(true);
     inset: 0;
     z-index: 10;
     pointer-events: all;
+    cursor: zoom-out;
 }
 
 .modal-content {
@@ -90,6 +91,8 @@ const zoomed = ref(true);
 
 .image {
     width: 100%;
+    // current implementation requires preview photo size to be moderately sized
+    // would recommend fixed dimensions for preview, then scale-down object-fit
     object-fit: cover;
     object-position: 50% 50%;
     grid-area: image;

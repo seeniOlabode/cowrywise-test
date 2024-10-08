@@ -17,7 +17,7 @@ const errorMessages = {
 }
 
 export default class PhotoService {
-  static async pullDefaultPhotos(query = '', count = 8) {
+  static async pullPhotos(query = '', count = 8) {
     try {
       const response = await unsplash.get('/search/photos', {
         params: {
