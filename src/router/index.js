@@ -15,7 +15,10 @@ const router = createRouter({
       name: 'search',
       component: ResultsView
     }
-  ]
+  ],
+  scrollBehavior() {
+    return { top: 0, behavior: 'smooth' }
+  }
 })
 
 export default router

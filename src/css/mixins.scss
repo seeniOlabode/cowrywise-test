@@ -5,6 +5,9 @@
 }
 
 @mixin pulseAnimation($opacity-value) {
+  & {
+    animation: pulse 0.8s ease-in-out infinite alternate-reverse;
+  }
   @keyframes pulse {
     from {
       opacity: $opacity-value;
@@ -14,6 +17,4 @@
       opacity: 1;
     }
   }
-
-  animation: pulse 0.8s ease-in-out infinite alternate-reverse;
 }
