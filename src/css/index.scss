@@ -34,3 +34,14 @@ ul {
     opacity: 1;
   }
 }
+
+// layout
+:root {
+  --max-width: 1200px;
+}
+
+.root-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-bottom: 100px;
+}

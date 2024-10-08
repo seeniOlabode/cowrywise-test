@@ -1,7 +1,7 @@
 <template>
   <div class="home-wrapper">
     <HeaderSearch v-model="searchString" @start-search="startSearch" />
-    <main class="search-page" :class="{ 'header-collapsed': !scrollTop }">
+    <main class="search-page root-page" :class="{ 'header-collapsed': !scrollTop }">
       <PhotosList :photos="photos" :loading="photosLoading" />
     </main>
   </div>
@@ -30,7 +30,7 @@ const scrollTop = useScrollTop();
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "@/css/variables.scss";
 
 .home-wrapper {
@@ -40,10 +40,7 @@ const scrollTop = useScrollTop();
 .search-page {
   position: relative;
   z-index: 20;
-  max-width: 1000px;
-  margin: 0 auto;
   transform: translateY(calc(var(--header-offset) - 100px));
-  padding-bottom: 100px;
 }
 
 

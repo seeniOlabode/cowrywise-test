@@ -25,10 +25,12 @@ export default class PhotoService {
           per_page: count
         }
       })
-      return response.data
+      return response.data.results
     } catch (err) {
       // throw out a toast instead;
       console.log(errorMessages.defaultPhotos)
+      console.log(err)
+      return []
     }
   }
 }

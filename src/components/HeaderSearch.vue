@@ -92,7 +92,7 @@ const scrollTop = useScrollTop()
   padding: 0 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 1100px;
+  max-width: calc(var(--max-width) * 1.1);
   margin: 0 auto;
 }
 
@@ -134,7 +134,7 @@ const scrollTop = useScrollTop()
 
 // results stuff
 .results-header {
-  max-width: 1100px;
+  max-width: calc(var(--max-width) * 1.1);
   margin: 0 auto;
   width: 100%;
 

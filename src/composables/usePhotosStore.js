@@ -21,7 +21,7 @@ async function getPhotos(query = 'African', count = 8) {
 
   const response = await PhotoService.pullPhotos(query, count)
 
-  photos.value = response.results
+  photos.value = response
 
   clearTimeout(photosLoadingTimeout)
 
