@@ -1,29 +1,52 @@
 <template>
   <label class="search-container-wrapper" :class="{ collapsed: !scrollTop }" for="search">
     <div class="results-header" v-if="props?.isSearchPage">
-
       <router-link class="back-button" to="/">
         <span>Go back</span>
       </router-link>
 
-      <h1 v-show="!loading">Search Results for <span class="search-string">"{{ searchString }}"</span>
-      </h1>
-      <h1 v-show="loading">Searching for <span class="search-string">"{{ searchString }}"</span></h1>
+      <Transition name="search-head">
+        <h1 v-show="!loading">
+          Search Results for <span class="search-string">"{{ searchString }}"</span>
+        </h1>
+      </Transition>
+
+      <Transition name="search-head">
+        <h1 v-show="loading">
+          Searching for <span class="search-string">"{{ searchString }}"</span>
+        </h1>
+      </Transition>
     </div>
 
     <div class="search-container" v-else>
-      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" stroke-width="1.5"
-        stroke="#000000" fill="none" stroke-linejoin="arcs" stroke-linecap="square" viewBox="0 0 24 24">
+      <svg
+        class="search-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        stroke-width="1.5"
+        stroke="#000000"
+        fill="none"
+        stroke-linejoin="arcs"
+        stroke-linecap="square"
+        viewBox="0 0 24 24"
+      >
         <g fill="none" fill-rule="evenodd">
           <rect width="24" height="24" style="stroke: rgba(0, 0, 0, 0)" />
           <path
-            d="M10,18 C14.418278,18 18,14.418278 18,10 C18,5.581722 14.418278,2 10,2 C5.581722,2 2,5.581722 2,10 C2,14.418278 5.581722,18 10,18 Z M21.5067024,21.5067024 L16,16" />
+            d="M10,18 C14.418278,18 18,14.418278 18,10 C18,5.581722 14.418278,2 10,2 C5.581722,2 2,5.581722 2,10 C2,14.418278 5.581722,18 10,18 Z M21.5067024,21.5067024 L16,16"
+          />
         </g>
       </svg>
-      <input id="search" class="search-element" placeholder="Search for photo" @input="handleSearchInput"
-        :value="props.modelValue" @keyup.enter="search" />
+      <input
+        id="search"
+        class="search-element"
+        placeholder="Search for photo"
+        @input="handleSearchInput"
+        :value="props.modelValue"
+        @keyup.enter="search"
+      />
     </div>
-
   </label>
 
   <div class="search-container-background" :class="{ collapsed: !scrollTop }"></div>
@@ -32,7 +55,7 @@
 <script setup>
 import useScrollTop from '@/composables/useScrollTop'
 
-const props = defineProps(['modelValue', 'isSearchPage', 'searchString', 'loading']);
+const props = defineProps(['modelValue', 'isSearchPage', 'searchString', 'loading'])
 const emit = defineEmits(['update:modelValue', 'start-search'])
 
 function handleSearchInput(e) {
@@ -130,8 +153,6 @@ const scrollTop = useScrollTop()
   }
 }
 
-
-
 // results stuff
 .results-header {
   max-width: calc(var(--max-width) * 1.1);
@@ -160,7 +181,7 @@ const scrollTop = useScrollTop()
     opacity: 0.8;
     position: relative;
     top: 5px;
-    width: fit-content
+    width: fit-content;
   }
 
   .back-button:hover {
@@ -177,5 +198,28 @@ const scrollTop = useScrollTop()
       font-size: 0.8rem;
     }
   }
+}
+
+// transition
+
+.search-head-enter-active {
+  transition: all 200ms;
+}
+
+.search-head-leave-active {
+  position: absolute;
+  opacity: 0;
+}
+
+.search-head-enter-from {
+  transform: translateY(-10px);
+  opacity: 0.6;
+  filter: blur(2px);
+}
+
+.search-head-enter-to {
+  transform: translateY(0px);
+  opacity: 1;
+  filter: blur(0px);
 }
 </style>
