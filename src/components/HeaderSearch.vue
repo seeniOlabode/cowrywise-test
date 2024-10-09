@@ -203,7 +203,7 @@ const scrollTop = useScrollTop()
 // transition
 
 .search-head-enter-active {
-  transition: all 200ms;
+  transition: all 300ms ease;
 }
 
 .search-head-leave-active {
@@ -212,8 +212,8 @@ const scrollTop = useScrollTop()
 }
 
 .search-head-enter-from {
-  transform: translateY(-10px);
-  opacity: 0.6;
+  transform: translateY(-5px);
+  opacity: 0;
   filter: blur(2px);
 }
 
