@@ -1,6 +1,4 @@
-# Hey there, read me 
-
-## Cowrywise Frontend Engineer Test
+# Hey There 
 
 This project is a mini unsplash, users can load photos and search photos from the unsplash API.
 
