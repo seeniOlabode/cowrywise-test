@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // accessible throug network tab;
-const ACCESS_KEY = 'DkfpJadY0yfdjqNZ6W0VjiCDFsX3N07fXq877EBDMS4'
+const ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY
 const API_BASE = 'https://api.unsplash.com/'
 
 const unsplash = axios.create({
