@@ -12,7 +12,7 @@ const unsplash = axios.create({
 })
 
 const errorMessages = {
-  defaultPhotos: 'Error fetching default photos'
+  defaultPhotos: 'Error fetching default photos, try reloading'
 }
 
 export default class PhotoService {
@@ -27,7 +27,7 @@ export default class PhotoService {
       return response.data.results
     } catch (err) {
       // throw out a toast instead;
-      console.log(errorMessages.defaultPhotos)
+      alert(errorMessages.defaultPhotos)
       console.log(err)
       return []
     }
