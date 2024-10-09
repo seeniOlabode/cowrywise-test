@@ -1,14 +1,8 @@
-# cowrywise-test
+# Cowrywise Frontend Engineer Test
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is a mini unsplash, users can load photos and search photos from the unsplash API.
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+This solution prioritizes routes for a shareable and navigable search experience. The preview mode also prioritizes a full view of the photo without cropping it. The tradeoff is that the preview modal takes the size of the smaller resolution photo (shown in place before the main image loads), adding some friction to the modal reveal animation, after that it's smooth sailing.
 
 ## Project Setup
 
@@ -20,16 +14,4 @@ npm install
 
 ```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
