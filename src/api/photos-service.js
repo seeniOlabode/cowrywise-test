@@ -5,7 +5,7 @@ const API_BASE = 'https://api.unsplash.com/'
 
 const unsplash = axios.create({
   baseURL: API_BASE,
-  timeout: 5000,
+  timeout: 10000,
   headers: {
     Authorization: `Client-ID ${ACCESS_KEY}`
   }
