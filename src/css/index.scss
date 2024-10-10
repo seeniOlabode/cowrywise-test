@@ -1,5 +1,6 @@
 @import './variables.scss';
 @import './mixins.scss';
+@import './reset.scss';
 
 // reset
 * {
@@ -12,6 +13,7 @@ body {
   background-color: white;
   height: var(--100vh);
   overflow: scroll;
+  font-family: 'Montserrat', sans-serif;
 }
 
 ul {

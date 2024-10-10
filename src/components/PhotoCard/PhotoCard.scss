@@ -54,7 +54,9 @@
   position: absolute;
   inset: 0;
   backdrop-filter: brightness(0.2);
+  -webkit-backdrop-filter: brightness(0.2);
   mask-image: linear-gradient(to bottom, transparent 0%, transparent 60%, black 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 60%, black 100%);
   z-index: -1;
   opacity: 1;
   transition: opacity 0.5s;

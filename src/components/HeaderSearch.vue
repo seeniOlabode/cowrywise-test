@@ -117,6 +117,12 @@ const scrollTop = useScrollTop()
   width: 100%;
   max-width: calc(var(--max-width) * 1.1);
   margin: 0 auto;
+  border: solid 1px white;
+  transition: border-color ease 0.2s;
+}
+
+.search-container:focus-within {
+  border-color: hsla(var(--blue-base), 0.25);
 }
 
 .search-icon {
@@ -134,9 +140,10 @@ const scrollTop = useScrollTop()
   background-color: transparent;
   font-size: 16px;
   width: 100%;
+  outline: none !important;
 }
 
-.search-element:focus-visible {
+.search-element:focus-visible, .search-element:focus {
   outline: none;
 }
 
@@ -158,6 +165,7 @@ const scrollTop = useScrollTop()
   max-width: calc(var(--max-width) * 1.1);
   margin: 0 auto;
   width: 100%;
+  position: relative;
 
   h1 {
     font-size: 1.2rem;
@@ -203,23 +211,21 @@ const scrollTop = useScrollTop()
 // transition
 
 .search-head-enter-active {
-  transition: all 300ms ease;
+  transition: all 700ms ease;
 }
 
 .search-head-leave-active {
   position: absolute;
   opacity: 0;
+  transition: all 400ms ease;
+  top: 0;
 }
 
-.search-head-enter-from {
-  transform: translateY(-5px);
+.search-head-enter-from, .search-leave-enter-to {
   opacity: 0;
-  filter: blur(2px);
 }
 
-.search-head-enter-to {
-  transform: translateY(0px);
+.search-head-enter-to, .search-head-leave-from  {
   opacity: 1;
-  filter: blur(0px);
 }
 </style>
