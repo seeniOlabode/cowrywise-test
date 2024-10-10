@@ -262,6 +262,11 @@ const zoomed = ref(true)
       top: unset;
     }
   }
+
+  // mobile bottom sheet requires more contrast to focus bottom
+  .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
 }
 
 .modal-enter-active {
