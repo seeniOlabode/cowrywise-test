@@ -9,6 +9,13 @@ Pay attention to how the long portrait photo below displays without cropping:
 
 This is an important consideration for a photo displaying website, photographers provide different photos, in different orientations, we ensure that those photos are displayed to their audience in their full glories.
 
+The Mobile view was also given strong consideration, the preview is shifted to full screen and bottom sheet:
+
+https://github.com/user-attachments/assets/d2a6a3c9-7ef1-41e1-b4ac-fac989803efc
+
+
+
+
 ## Project Setup
 
 ```sh
