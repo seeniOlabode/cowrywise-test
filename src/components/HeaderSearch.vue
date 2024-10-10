@@ -143,7 +143,8 @@ const scrollTop = useScrollTop()
   outline: none !important;
 }
 
-.search-element:focus-visible, .search-element:focus {
+.search-element:focus-visible,
+.search-element:focus {
   outline: none;
 }
 
@@ -208,6 +209,12 @@ const scrollTop = useScrollTop()
   }
 }
 
+.search-container-wrapper:not(.collapsed) .results-header {
+  h1 {
+    margin-top: 10px;
+  }
+}
+
 // transition
 
 .search-head-enter-active {
@@ -217,15 +224,13 @@ const scrollTop = useScrollTop()
 .search-head-leave-active {
   position: absolute;
   opacity: 0;
-  transition: all 400ms ease;
-  top: 0;
 }
 
-.search-head-enter-from, .search-leave-enter-to {
+.search-head-enter-from {
   opacity: 0;
 }
 
-.search-head-enter-to, .search-head-leave-from  {
+.search-head-enter-to {
   opacity: 1;
 }
 </style>
